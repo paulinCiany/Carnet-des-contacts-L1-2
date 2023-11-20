@@ -1,22 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>carnet de contact</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
+  <body>
+    <div class="header">
+      <h3>Répertoire des contacts</h3>
+    </div>
 
+    <div class="main">
+      <div class="form">
+        <div class="form-title"><h3>Formulaire de contact</h3></div>
+        <form action="">
+          <div class="Glastname elt">
+            <label form="lastname">Prénom</label><br />
+            <input type="text" id="lastname" name="lastname" />
+          </div>
 
+          <div class="Gname elt">
+            <label for="name">Nom</label><br />
+            <input type="text" id="name" name="name" />
+          </div>
+          <div>
+            <label for="phone">Télephone</label><br />
+            <input type="text" id="phone" name="phone">
+          </div>
 
+          <div class="Ggroupe elt">
+            <label for="group">Groupe</label><br />
+            <input type="text" name="group" id="group">
+            </select>
+          </div>
+          <div>
+            <label for="Email">Email</label><br />
+            <input type="text" name="Email" id="Email">
+          </div>
 
+          <div class="Bio-t elt">
+            <label for="Bio">Bio</label><br />
+            <textarea name="bio" id="bio"></textarea>
+          </div>
+          <section>Déposer la photo<br>ici</section>
+          </div>
+        </form>
 
+        <div class="bouton">
+          <button class="bt-cree">Créer</button>
+          <button class="bt-reinit">Réinit.</button>
+        </div>
+        <br />
+      </div>
 
+      <div class="list">
+        <div class="list-title"><h3>Liste des contacts</h3></div>
+        <div class="global-contact">
+        </div>
+      </div>
+    </div>
 
-
-    <script src=main.js></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

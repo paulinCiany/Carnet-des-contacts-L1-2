@@ -1,22 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@700&family=Work+Sans:wght@100&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>carnet de contact</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    
+    <!-- FIRST CONTAINER -->
+    <div class="container">
 
+        <div class="headerTitle">
+            <h3 class="titleRepertoir">Répertoire des contacts</h3>
+        </div>
 
+<!-- the second container -->
+        <div class="formList">
+                
+            
+            <!-- third coLIST OF CONTACTSntainer -->
+            <div class="form">
+                <div class="formTitle">
+                    <h3>Formulaire de contact</h3>
+                </div>
+                <!-- input container -->
+                <div class="formInput">
 
+                    <p>Prénom</p>
+                    <input type="text" id="">
 
+                    <p>Nom</p>
+                    <input type="text" id="nom">
 
+                    <p>Téléphone</p>
+                    <input type="text" id="phone">
 
+                    <p>Groupe</p>
+                    <input type="text" id="group">
 
+                    <p>Email</p>
+                    <input type="text" name="Email" id="Email">
 
+                    <p>Bio</p>
+                    <input type="text" id="bio" class="inputBio">
 
-    <script src=main.js></script>
+                    <label for="photoDrop" class="inputDrop">deposez votre photo <br>ici
+                       
+                    </label>
+                    <input type="file" class="inputFile" id="photoDrop">
+                    
+                    <!-- btn div -->
+                    <div class="btn">
+                        <button class="btnCreat">Créer</button>
+                        <button class="btnRenit">Rénit.</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LIST OF CONTACTS -->
+
+            <div class="list">
+
+                <div class="listTitle">
+                        <h3>Liste des contacts</h3>
+                </div>
+                <div class="globalContact">
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

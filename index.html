@@ -1,67 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@700&family=Work+Sans:wght@100&display=swap"
+        rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>carnet de contact</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
+</head>
 
-  <body>
-    <div class="header">
-      <h3>Répertoire des contacts</h3>
-    </div>
+<body>
+    <!-- FIRST CONTAINER -->
+    <div class="container">
 
-    <div class="main">
-      <div class="form">
-        <div class="form-title"><h3>Formulaire de contact</h3></div>
-        <form action="">
-          <div class="Glastname elt">
-            <label form="lastname">Prénom</label><br />
-            <input type="text" id="lastname" name="lastname" />
-          </div>
-
-          <div class="Gname elt">
-            <label for="name">Nom</label><br />
-            <input type="text" id="name" name="name" />
-          </div>
-          <div>
-            <label for="phone">Télephone</label><br />
-            <input type="text" id="phone" name="phone">
-          </div>
-
-          <div class="Ggroupe elt">
-            <label for="group">Groupe</label><br />
-            <input type="text" name="group" id="group">
-            </select>
-          </div>
-          <div>
-            <label for="Email">Email</label><br />
-            <input type="text" name="Email" id="Email">
-          </div>
-
-          <div class="Bio-t elt">
-            <label for="Bio">Bio</label><br />
-            <textarea name="bio" id="bio"></textarea>
-          </div>
-          <section>Déposer la photo<br>ici</section>
-          </div>
-        </form>
-
-        <div class="bouton">
-          <button class="bt-cree">Créer</button>
-          <button class="bt-reinit">Réinit.</button>
+        <div class="headerTitle">
+            <h3 class="titleRepertoir">Répertoire des contacts</h3>
         </div>
-        <br />
-      </div>
 
-      <div class="list">
-        <div class="list-title"><h3>Liste des contacts</h3></div>
-        <div class="global-contact">
+        <!-- the second container -->
+        <div class="formList">
+
+
+            <!-- third coLIST OF CONTACTSntainer -->
+            <div class="form">
+                <div class="formTitle">
+                    <h3>Formulaire de contact</h3>
+                </div>
+                <!-- input container -->
+                <div class="formInput">
+
+                    <p>Prénom</p>
+                    <input type="text" id="prenomInput">
+                    <span id="prenomError"></span>
+
+                    <p>Nom</p>
+                    <input type="text" id="nom">
+                    <span id="nameError"></span>
+
+                    <p>Téléphone</p>
+                    <input type="tel" id="phone">
+                    <span id="phoneError"></span>
+
+                    <p>Groupe</p>
+                    <input type="" id="group">
+                    <span id="groupError"></span>
+
+                    <p>Email</p>
+                    <input type="email" name="email" id="email">
+                    <span id="emailError"></span>
+
+                    <p>Bio</p>
+                    <input type="text" id="bio" class="inputBio">
+                    <span id="bioError"></span>
+
+                    <label for="photoDrop" class="inputDrop">deposez votre photo <br>ici
+
+                    </label>
+                    <div class="image-container">
+                        <input type="file" class="image-input" accept="image/png, image/jpeg">
+                        <img class="image" src="" alt="">
+                      </div>
+                      
+                    
+
+                    <!-- btn div -->
+                    <div class="btn">
+                        <button type="submit" class="btnCreat submit">Créer</button>
+                        <button class="btnRenit">Rénit.</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LIST OF CONTACTS -->
+
+            <div class="list">
+
+                <div class="listTitle">
+                    <h3>Liste des contacts</h3>
+                    <ul class="liste">
+                    </ul>
+                </div>
+                <div class="globalContact">
+                </div>
+
+            </div>
+
+
         </div>
-      </div>
     </div>
+    <script src="main.js"></script>
+</body>
 
-    <script src="script.js"></script>
-  </body>
 </html>

@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+}
+
+.headerTitle {
+    background-color: #0880D6;
+    height: 60px;
+}
+
+.titleRepertoir {
+    color: white;
+    padding-left: 20px;
+    padding-top: 1%;
+    font-family: "poppins";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.formList {
+    display: flex;
+    flex-direction: row;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
+    gap: 2%;
+}
+
+.form {
+    width: 40%;
+    border: 1px solid;
+}
+
+.list {
+    width: 58%;
+    border: 1px solid;
+}
+
+.listTitle,
+.formTitle {
+    padding-top: 1%;
+    background-color: #0880D6;
+    height: 40px;
+    color: white;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+}
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+
+input {
+    height: 40px;
+
+
+}
+
+.inputBio,
+.inputDrop {
+    height: 95px;
+}
+
+.formInput p {
+    color: #0880D6;
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+
+
+}
+
+.inputDrop {
+    border: 1px dashed;
+    margin-top: 5%;
+    text-align: center;
+
+}
+
+.inputFile {
+    display: none;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    gap: 36px;
+    width: 40%;
+}
+
+.btnCreat,
+.btnRenit {
+    margin-top: 10%;
+    margin-bottom: 15%;
+    border-style: none;
+    width: 100px;
+    height: 40px;
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+}
+
+
+.btnCreat {
+    background-color: #0880D6;
+}
+
+.btnRenit {
+    background: #FF3838;
+
+}
+  
+  

@@ -17,7 +17,7 @@
     color: white;
     padding-left: 20px;
     padding-top: 1%;
-    font-family: "poppins";
+    font-family: "poppins", sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 30px;
@@ -51,7 +51,7 @@
     background-color: #0880D6;
     height: 40px;
     color: white;
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 30px;
@@ -85,9 +85,7 @@ input {
     color: #0880D6;
     margin-top: 2%;
     margin-bottom: 2%;
-
-
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -121,7 +119,7 @@ input {
     border-style: none;
     width: 100px;
     height: 40px;
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -140,3 +138,55 @@ input {
 
 }
 
+@media (min-width:768px) and (max-width:991px) {
+    .formList {
+        margin-left: 3%;
+        margin-right: 3%;
+
+    }
+
+    .form {
+        width: 50%;
+        border: 1px solid;
+    }
+
+    .list {
+        width: 60%;
+        border: 1px solid;
+    }
+
+    .form {
+        width: 50%;
+        border: 1px solid;
+    }
+
+    .input {
+        height: 800px;
+    }
+
+    .inputBio,
+    .inputDrop {
+        height: 110px;
+    }
+
+    .btn {
+        display: flex;
+        flex-direction: row;
+        gap: 10%;
+        width: 100%;
+        align-items: center;
+    }
+
+    .btnCreat,
+    .btnRenit {
+        width: 50%;
+        height: 70px;
+        font-size: 20px;
+    }
+
+    .formInput p {
+        font-size: 20px;
+
+    }
+
+}

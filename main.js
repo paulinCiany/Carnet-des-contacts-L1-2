@@ -125,6 +125,138 @@ prenomInput.addEventListener('blur', function () {
 
 // fin de condtion
 
+// fonctions for adding contacts and buttons
+
+
+// recuperation des elemnts
+let form = document.querySelector(".formInput")
+let div = document.querySelector(".globalContact")
+let userfirstname = document.querySelector("#userfirstname")
+let username = document.querySelector("#username")
+let phoneNum = document.querySelector("#phone")
+let group = document.querySelector("#group")
+let email = document.querySelector("#Email")
+let bio = document.querySelector(".inputBio")
+let btncreat = document.querySelector(".btnCreat")
+let listContact = []
+
+
+
+
+
+btncreat.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    listContact.push({
+        prenom: userfirstname.value,
+        nom: username.value,
+        phone: phoneNum.value,
+        groupe: group.value,
+        email: email.value,
+        bio: bio.value,
+
+
+    });
+    showContacts();
+    contactField();
+
+})
+
+
+function showContacts() {
+    div.innerHTML = ''
+    for (let i = 0; i < listContact.length; i++) {
+        // const element = listContact[i];
+        // let index = listContact.indexOf(element);
+        console.log(i);
+        let contactdiv = document.createElement("div");
+        contactdiv.classList = "contactIdentity";
+        div.appendChild(contactdiv);
+
+        let img = document.createElement("div");
+        img.classList = "img_identity";
+        img.scr = "image/home-02-480x480.jpg";
+        img.alt = "ma photo";
+        contactdiv.appendChild(img);
+
+        let divIdentity = document.createElement("div");
+        divIdentity.classList = "infoContact";
+        contactdiv.appendChild(divIdentity);
+
+        let names = document.createElement("div");
+        names.classList = "fullNameAndbtns";
+        divIdentity.appendChild(names);
+
+        let personalNames = document.createElement("div");
+        personalNames.classList = "fullname";
+        personalNames.innerHTML = userfirstname.value + " " + username.value + "-" + group.value;
+        names.appendChild(personalNames);
+
+        let btndeleteandmodify = document.createElement('div');
+        btndeleteandmodify.classList = "btns";
+        names.appendChild(btndeleteandmodify);
+
+        let modifyButton = document.createElement("button");
+
+        btndeleteandmodify.appendChild(modifyButton);
+
+        let modifyImg = document.createElement("img")
+        modifyImg.src = "image/Vector.svg";
+        modifyButton.appendChild(modifyImg);
+
+        let deleteButton = document.createElement("button");
+
+
+        btndeleteandmodify.appendChild(deleteButton);
+
+        let deleteImg = document.createElement("img");
+        deleteImg.src = "image/Vector (1).svg";
+        deleteButton.addEventListener("click", function () {
+            deleteContact(i)
+        });
+        deleteButton.appendChild(deleteImg);
+
+        let adress = document.createElement("div");
+        adress.classList = "telNum"
+        divIdentity.appendChild(adress);
+
+        let phone = document.createElement("p");
+        phone.innerHTML = phoneNum.value;
+        adress.appendChild(phone);
+
+        let emailP = document.createElement("p");
+        emailP.innerHTML = email.value;
+        adress.appendChild(emailP);
+
+        let about = document.createElement("div");
+        about.classList = "bioInfo";
+        divIdentity.appendChild(about);
+
+        let bioinfoP = document.createElement("p");
+        bioinfoP.innerHTML = bio.value;
+        about.appendChild(bioinfoP);
+    }
+}
+
+function contactField() {
+    userfirstname.value = "";
+    username.value = "";
+    phoneNum.value = "";
+    group.value = "";
+    email.value = "";
+    bio.value = "";
+}
+function deleteContact(i) {
+    console.log('delete called');
+    listContact.splice(i, 1);
+    console.log(listContact);
+    showContacts();
+}
+
+
+
+
+
 
 
 

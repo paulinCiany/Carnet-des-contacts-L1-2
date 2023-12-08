@@ -9,6 +9,9 @@
   />
   <!-- Poppins font -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@700&family=Work+Sans:wght@100&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@700&family=Work+Sans:wght@100&display=swap"
+        rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>carnet de contact</title>
@@ -36,31 +39,42 @@
                 <div class="formInput">
 
                     <p>Prénom</p>
-                    <input type="text" id="">
+                    <input type="text" id="prenomInput">
+                    <span id="prenomError"></span>
 
                     <p>Nom</p>
                     <input type="text" id="nom">
+                    <span id="nameError"></span>
 
                     <p>Téléphone</p>
-                    <input type="text" id="phone">
+                    <input type="tel" id="phone">
+                    <span id="phoneError"></span>
 
                     <p>Groupe</p>
-                    <input type="text" id="group">
+                    <input type="" id="group">
+                    <span id="groupError"></span>
 
                     <p>Email</p>
-                    <input type="email" name="Email" id="Email">
+                    <input type="email" name="email" id="email">
+                    <span id="emailError"></span>
 
                     <p>Bio</p>
                     <input type="text" id="bio" class="inputBio">
+                    <span id="bioError"></span>
 
                     <label for="photoDrop" class="inputDrop">deposez votre photo <br>ici
-                       
+
                     </label>
-                    <input type="file" class="inputFile" id="photoDrop">
+                    <div class="image-container">
+                        <input type="file" class="image-input" accept="image/png, image/jpeg">
+                        <img class="image" src="" alt="">
+                      </div>
+                      
                     
+
                     <!-- btn div -->
                     <div class="btn">
-                        <button class="btnCreat">Créer</button>
+                        <button type="submit" class="btnCreat submit">Créer</button>
                         <button class="btnRenit">Rénit.</button>
                     </div>
 
@@ -113,7 +127,7 @@
 
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

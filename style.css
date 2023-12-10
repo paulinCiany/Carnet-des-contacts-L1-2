@@ -33,7 +33,7 @@
     margin-right: 10%;
     margin-top: 2%;
     gap: 2%;
-    border: 2px solid #0880D6;
+    /* border: 2px solid #0880D6; */
 }
 
 .form {
@@ -43,7 +43,7 @@
 
 .list {
     width: 58%;
-    
+    border: 1px solid;
 }
 
 .listTitle,
@@ -79,14 +79,14 @@ input {
 
 .inputBio,
 .inputDrop {
-    height: 95px;
+    height: 90px;
 }
 
 .formInput p {
     color: #0880D6;
     margin-top: 2%;
     margin-bottom: 2%;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -116,7 +116,7 @@ input {
 .btnCreat,
 .btnRenit {
     margin-top: 10%;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
     border-style: none;
     width: 100px;
     height: 40px;
@@ -137,11 +137,13 @@ input {
     background: #FF3838;
 
 }
+
 .globalContact {
     display: flex;
     flex-direction: column;
 }
-.contactIdentity{
+
+.contactIdentity {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -151,7 +153,8 @@ input {
     border-style: solid;
     border-color: #DDDDDD;
 }
-.img_identity{
+
+.img_identity {
     width: 162px;
     height: 162px;
     border-radius: 86px;
@@ -162,7 +165,7 @@ input {
     display: flex;
     flex-direction: column;
     width: 100%;
-   
+
 }
 
 .fullNameAndbtns {
@@ -171,47 +174,37 @@ input {
     width: 100%;
 
 }
-.fullname{
+
+.fullname {
     width: 75%;
     font-weight: 500;
     font-size: 16px;
-    line-height: 24px; 
+    line-height: 24px;
 }
-.btns{
+
+.btns {
     display: flex;
     flex-direction: row;
     text-align: right;
     width: 10%;
     justify-content: space-between;
-   
+
 }
 
-.telNum{
+.telNum {
     font-weight: 400;
     font-size: 14px;
-    line-height: 21px; 
+    line-height: 21px;
 }
-.bioInfo{
+
+.bioInfo {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Small devices (portrait and large phones, 767px and down) */
+/* Small devices (portrait and large phones, 767px and down) developed by paul */
 @media only screen and (max-width: 767px) {
 
 
@@ -396,5 +389,3 @@ input {
 
 
 }
-  
-  

@@ -1,22 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Poppins font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>carnet de contact</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Work+Sans:wght@400;500;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <!-- FIRST CONTAINER -->
+    <div class="container">
+
+        <div class="headerTitle">
+            <h3 class="titleRepertoir">Répertoire des contacts</h3>
+        </div>
+
+        <!-- the second container -->
+        <div class="formList">
 
 
+            <!-- third coLIST OF CONTACTSntainer -->
+            <div class="form">
+                <div class="formTitle">
+                    <h3>Formulaire de contact</h3>
+                </div>
+                <!-- input container -->
+                <div class="formInput">
+
+                    <p>Prénom</p>
+                    <input type="text" id="prenomInput">
+                    <span id="prenomError"></span>
+
+                    <p>Nom</p>
+                    <input type="text" id="nom">
+                    <span id="nameError"></span>
+
+                    <p>Téléphone</p>
+                    <input type="tel" id="phone">
+                    <span id="phoneError"></span>
+
+                    <p>Groupe</p>
+                    <input type="" id="group">
+                    <span id="groupError"></span>
+
+                    <p>Email</p>
+                    <input type="email" name="email" id="email">
+                    <span id="emailError"></span>
+
+                    <p>Bio</p>
+                    <input type="text" id="bio" class="inputBio">
+                    <span id="bioError"></span>
+
+                    <label for="photoDrop" class="inputDrop">deposez votre photo <br>ici
+
+                    </label>
+                    <div class="image-container">
+                        <input type="file" class="image-input" accept="image/png, image/jpeg">
+                        <img class="image" src="" alt="">
+                    </div>
 
 
+                    <input type="file" class="inputFile" id="photoDrop">
+
+                    <!-- btn div -->
+                    <div class="btn">
+                        <button type="submit" class="btnCreat submit">Créer</button>
+                        <button class="btnRenit">Rénit.</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LIST OF CONTACTS -->
+
+            <div class="list">
+
+                <div class="listTitle">
+                    <h3>Liste des contacts</h3>
+                </div>
+                <div class="globalContact">
+                    <div class="contactIdentity">
+                        <div>
+                            <img class="img_identity" src="image/home-02-480x480.jpg" alt="">
+                        </div>
 
 
+                        <div class="infoContact">
+                            <div class="fullNameAndbtns">
+                                <div class="fullname">
+                                    <p>bibiche</p>
+                                    <p>kweshi</p>
+                                    <p> groupeL1</p>
+                                </div>
+                                <div class="btns">
+                                    <button>
+                                        <img src="image/Vector.svg" alt="modify">
+
+                                    </button>
+                                    <button>
+                                        <img src="image/Vector (1).svg" alt="delete">
+                                    </button>
+                                </div>
+                            </div>
 
 
+                            <div class="telNum">
+                                <p>+243 816 458 294</p>
+                                <p>bibichekweshibk@gmail.com</p>
 
-    <script src=main.js></script>
+                            </div>
+                            <div class="bioInfo">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis in saepe
+                                    di.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
+
 </html>

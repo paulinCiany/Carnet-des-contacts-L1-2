@@ -1,3 +1,17 @@
+// recuperation des elemnts
+let form = document.querySelector(".formInput")
+let div = document.querySelector(".globalContact")
+let userfirstname = document.querySelector("#userfirstname")
+let username = document.querySelector("#username")
+let phoneNum = document.querySelector("#phone")
+let group = document.querySelector("#group")
+let email = document.querySelector("#Email")
+let bio = document.querySelector(".inputBio")
+let btncreat = document.querySelector(".btnCreat")
+let listContact = []
+
+
+
 
 let telephone = document.getElementById('phone');
 
@@ -26,10 +40,10 @@ function validateEmail(email) {
   let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
-let emailInput = document.getElementById('email');
+// let emailInput = document.getElementById('email');
 let errorMessage = document.getElementById('error');
 
-emailInput.addEventListener('blur', function () {
+email.addEventListener('blur', function () {
   if (!validateEmail(this.value)) {
     this.style.borderColor = 'red';
     emailError.textContent = 'Veuillez renseigner une adresse email valide';
@@ -40,35 +54,35 @@ emailInput.addEventListener('blur', function () {
 });
 
 // Validate other input fields (name, group, bio)
-let nameInput = document.getElementById('nom');
+// let nameInput = document.getElementById('nom');
 let groupInput = document.getElementById('group');
 let bioInput = document.getElementById('bio');
 
 const nameError = document.getElementById('nameError');
-nameInput.addEventListener('blur', function () {
+userfirstname.addEventListener('blur', function () {
   // Condition 1: Le prénom doit commencer par une lettre
-  if (!/^[a-zA-Z]/.test(nameInput.value)) {
-    nameInput.style.borderColor = 'red';
+  if (!/^[a-zA-Z]/.test(userfirstname.value)) {
+    userfirstname.style.borderColor = 'red';
     nameError.textContent = 'Le prénom doit commencer par une lettre';
     return;
   }
 
   // Condition 2: Le prénom doit avoir au moins 3 caractères
-  if (nameInput.value.length < 3) {
-    nameInput.style.borderColor = 'red';
+  if (userfirstname.value.length < 3) {
+    userfirstname.style.borderColor = 'red';
     nameError.textContent = 'Le prénom doit avoir au moins 3 caractères';
     return;
   }
 
   // Condition 3: Le prénom ne doit pas contenir de chiffres
-  if (/[0-9]/.test(nameInput.value)) {
-    nameInput.style.borderColor = 'red';
+  if (/[0-9]/.test(userfirstname.value)) {
+    userfirstname.style.borderColor = 'red';
     nameError.textContent = 'Le prénom ne doit pas contenir de chiffres';
     return;
   }
 
   // Si toutes les conditions sont remplies, le prénom est valide
-  nameInput.style.borderColor = '';
+  userfirstname.style.borderColor = '';
   nameError.textContent = '';
 });
 
@@ -93,33 +107,33 @@ bioInput.addEventListener('blur', function () {
   }
 });
 
-const prenomInput = document.getElementById('prenomInput');
+// const username = document.getElementById('prenomInput');
 const prenomError = document.getElementById('prenomError');
 
-prenomInput.addEventListener('blur', function () {
+username.addEventListener('blur', function () {
   // Condition 1: Le prénom doit commencer par une lettre
-  if (!/^[a-zA-Z]/.test(prenomInput.value)) {
-    prenomInput.style.borderColor = 'red';
+  if (!/^[a-zA-Z]/.test(username.value)) {
+  username.style.borderColor = 'red';
     prenomError.textContent = 'Le prénom doit commencer par une lettre';
     return; // Arrête l'exécution de la fonction si la condition n'est pas remplie
   }
 
   // Condition 2: Le prénom doit avoir au moins 3 caractères
-  if (prenomInput.value.length < 3) {
-    prenomInput.style.borderColor = 'red';
+  if (username.value.length < 3) {
+    username.style.borderColor = 'red';
     prenomError.textContent = 'Le prénom doit avoir au moins 3 caractères';
     return;
   }
 
   // Condition 3: Le prénom ne doit pas contenir de chiffres
   if (/[0-9]/.test(prenomInput.value)) {
-    prenomInput.style.borderColor = 'red';
+    username.style.borderColor = 'red';
     prenomError.textContent = 'Le prénom ne doit pas contenir de chiffres';
     return;
   }
 
   // Si toutes les conditions sont remplies, le prénom est valide
-  prenomInput.style.borderColor = '';
+  username.style.borderColor = '';
   prenomError.textContent = '';
 });
 
@@ -127,18 +141,6 @@ prenomInput.addEventListener('blur', function () {
 
 // fonctions for adding contacts and buttons
 
-
-// recuperation des elemnts
-let form = document.querySelector(".formInput")
-let div = document.querySelector(".globalContact")
-let userfirstname = document.querySelector("#userfirstname")
-let username = document.querySelector("#username")
-let phoneNum = document.querySelector("#phone")
-let group = document.querySelector("#group")
-let email = document.querySelector("#Email")
-let bio = document.querySelector(".inputBio")
-let btncreat = document.querySelector(".btnCreat")
-let listContact = []
 
 
 
@@ -233,6 +235,7 @@ function showContacts() {
         divIdentity.appendChild(about);
 
         let bioinfoP = document.createElement("p");
+        // <input type="text" id="prenomInput"></input>
         bioinfoP.innerHTML = bio.value;
         about.appendChild(bioinfoP);
     }

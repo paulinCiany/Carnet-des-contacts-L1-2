@@ -3,14 +3,13 @@
 
 <head>
     <!-- icon -->
+
+    <!-- Poppins font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <!-- Poppins font -->
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-  />
-  <!-- Poppins font -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@700&family=Work+Sans:wght@100&display=swap" rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@700&family=Work+Sans:wght@100&display=swap"
+        rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@700&family=Work+Sans:wght@100&display=swap"
         rel="stylesheet">
@@ -46,6 +45,10 @@
                 <div class="formInput">
 
                     <p>Prénom</p>
+                    <input type="text" id="userfirstname">
+
+                    <p>Nom</p>
+                    <input type="text" id="username">
                     <input type="text" id="prenomInput">
                     <span id="prenomError"></span>
 
@@ -62,6 +65,7 @@
                     <span id="groupError"></span>
 
                     <p>Email</p>
+                    <input type="email" id="Email">
                     <input type="email" name="email" id="email">
                     <span id="emailError"></span>
 
@@ -75,9 +79,9 @@
                     <div class="image-container">
                         <input type="file" class="image-input" accept="image/png, image/jpeg">
                         <img class="image" src="" alt="">
-                      </div>
-                      
-                    
+                    </div>
+
+
                     <input type="file" class="inputFile" id="photoDrop">
 
                     <!-- btn div -->
@@ -97,14 +101,44 @@
                     <h3>Liste des contacts</h3>
                 </div>
                 <div class="globalContact">
-                    
+                    <div class="contactIdentity">
+                        <div>
+                            <img class="img_identity" src="image/home-02-480x480.jpg" alt="">
+                        </div>
 
 
+                        <div class="infoContact">
+                            <div class="fullNameAndbtns">
+                                <div class="fullname">
+                                    <p>bibiche</p>
+                                    <p>kweshi</p>
+                                    <p> groupeL1</p>
+                                </div>
+                                <div class="btns">
+                                    <button>
+                                        <img src="image/Vector.svg" alt="modify">
+
+                                    </button>
+                                    <button>
+                                        <img src="image/Vector (1).svg" alt="delete">
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <div class="telNum">
+                                <p>+243 816 458 294</p>
+                                <p>bibichekweshibk@gmail.com</p>
+
+                            </div>
+                            <div class="bioInfo">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis in saepe
+                                    di.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-
         </div>
     </div>
     <script src="main.js"></script>

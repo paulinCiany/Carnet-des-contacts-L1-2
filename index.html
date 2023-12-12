@@ -75,13 +75,19 @@
                     <input type="text" id="bio" class="inputBio">
                     <span id="bioError"></span>
 
-                    <label for="photoDrop" class="inputDrop">deposez votre photo <br>ici
+                    <!-- <label for="photoDrop" class="inputDrop">deposez votre photo <br>ici
 
-                    </label>
+                    </label> -->
                     <!-- <div class="image-container">
                         <input type="file" class="image-input" accept="image/png, image/jpeg">
                         <img class="image" src="" alt="">
                     </div> -->
+
+                    <label for="file" class="inputDrop">
+                        <span id="displayNon" class="spanInfo">deposez votre photo ici</span>
+                        <!-- <img id="photoForApp" class="postionPhoto" width="70px" height="70px"> -->
+                    </label>
+                    <input type="file" class="inputFile" id="file" name="">
 
 
                     <input type="file" class="inputFile" id="photoDrop">
@@ -104,7 +110,7 @@
                 </div>
                 <div class="globalContact">
                     <div class="contactIdentity">
-                        <div>
+                        <div class="img_identity" id="imgDiv">
                             <img class="img_identity" src="image/home-02-480x480.jpg" alt="">
                         </div>
 

@@ -304,7 +304,7 @@ function editInfo(i) {
   email.value =  listContact[i].email
   bio.value =   listContact[i].bio
 
-  btncreat.innerText = "Update"
+  btncreat.innerText = "Modifier"
   btnRenit.innerText = "Annuler"
 }
 

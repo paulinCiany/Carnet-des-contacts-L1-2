@@ -59,32 +59,32 @@ email.addEventListener('blur', function () {
 let groupInput = document.getElementById('group');
 let bioInput = document.getElementById('bio');
 
-const nameError = document.getElementById('nameError');
+const prenomError = document.getElementById('prenomError');
 userfirstname.addEventListener('blur', function () {
   // Condition 1: Le prénom doit commencer par une lettre
   if (!/^[a-zA-Z]/.test(userfirstname.value)) {
     userfirstname.style.borderColor = 'red';
-    nameError.textContent = 'Le prénom doit commencer par une lettre';
+    prenomError.textContent = 'Le prénom doit commencer par une lettre';
     return;
   }
 
   // Condition 2: Le prénom doit avoir au moins 3 caractères
   if (userfirstname.value.length < 3) {
     userfirstname.style.borderColor = 'red';
-    nameError.textContent = 'Le prénom doit avoir au moins 3 caractères';
+    prenomError.textContent = 'Le prénom doit avoir au moins 3 caractères';
     return;
   }
 
   // Condition 3: Le prénom ne doit pas contenir de chiffres
   if (/[0-9]/.test(userfirstname.value)) {
     userfirstname.style.borderColor = 'red';
-    nameError.textContent = 'Le prénom ne doit pas contenir de chiffres';
+    prenomError.textContent = 'Le prénom ne doit pas contenir de chiffres';
     return;
   }
 
   // Si toutes les conditions sont remplies, le prénom est valide
   userfirstname.style.borderColor = '';
-  nameError.textContent = '';
+  prenomError.textContent = '';
 });
 
 const groupError = document.getElementById('groupError')
@@ -109,33 +109,33 @@ bioInput.addEventListener('blur', function () {
 });
 
 // const username = document.getElementById('prenomInput');
-const prenomError = document.getElementById('prenomError');
+const nameError = document.getElementById('nameError');
 
 username.addEventListener('blur', function () {
   // Condition 1: Le prénom doit commencer par une lettre
   if (!/^[a-zA-Z]/.test(username.value)) {
     username.style.borderColor = 'red';
-    prenomError.textContent = 'Le prénom doit commencer par une lettre';
+    nameError.textContent = 'Le nom doit commencer par une lettre';
     return; // Arrête l'exécution de la fonction si la condition n'est pas remplie
   }
 
   // Condition 2: Le prénom doit avoir au moins 3 caractères
   if (username.value.length < 3) {
     username.style.borderColor = 'red';
-    prenomError.textContent = 'Le prénom doit avoir au moins 3 caractères';
+    nameError.textContent = 'Le nom doit avoir au moins 3 caractères';
     return;
   }
 
   // Condition 3: Le prénom ne doit pas contenir de chiffres
   if (/[0-9]/.test(username.value)) {
     username.style.borderColor = 'red';
-    prenomError.textContent = 'Le prénom ne doit pas contenir de chiffres';
+    nameErrortextContent = 'Le nom ne doit pas contenir de chiffres';
     return;
   }
 
   // Si toutes les conditions sont remplies, le prénom est valide
   username.style.borderColor = '';
-  prenomError.textContent = '';
+  nameError.textContent = '';
 });
 
 // add picture to the form

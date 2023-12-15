@@ -14,6 +14,8 @@ let inputDrop = document.querySelector(".inputDrop")
 let pic
 let tabPictureForm = []
 let listContact = []
+let spanModifier = document.querySelector('.spanModifier')
+spanModifier.style.display='none'
 
 let telephone = document.getElementById('phone');
 
@@ -148,11 +150,10 @@ file.addEventListener("change", function () {
       imgEl.setAttribute('id', 'photoForApp')
       imgEl.className = 'postionPhoto'
       inputDrop.append(imgEl)
-      document.querySelector("#displayNon").remove();
-      document.querySelector("#photoForApp").src = reader.result
-
       tabPictureForm.pop()
       tabPictureForm.push(reader.result)
+      document.querySelector("#displayNon").style.display ='none';
+      document.querySelector("#photoForApp").src = tabPictureForm[0] //reader.result
     })
     reader.readAsDataURL(this.files[0]);
   }
@@ -262,7 +263,6 @@ function showContacts() {
 
     let bioinfoP = document.createElement("p");
     bioinfoP.innerHTML = listContact[i].bio
-    // bioinfoP.innerHTML = bio.value;
     about.appendChild(bioinfoP);
   }
 }
@@ -275,13 +275,31 @@ function contactField() {
   email.value = "";
   bio.value = "";
   file.value = "";
-  document.querySelector("#photoForApp").remove();
+  
+  let spanPApp = document.querySelector('.spanInfo')
+  spanPApp.remove()
+  
+  let spanModifier = document.querySelector('.spanModifier')
+  let modifBtn = document.querySelector('.modifier')
+  if(spanModifier && modifBtn){
+    spanModifier.style.display ='none'
+    modifBtn.remove()
+    btncreat.style.display ='block'
+  }
+  let photoComp = document.querySelector("#photoForApp")
+  if(photoComp){
+    document.querySelector("#photoForApp").remove();
+  }
 
+  
+  spanModifier.style.display='none'
   let spanPhotoApp = document.createElement('span');
   spanPhotoApp.className = 'spanInfo';
   spanPhotoApp.setAttribute('id', 'displayNon');
   inputDrop.appendChild(spanPhotoApp)
   spanPhotoApp.innerHTML = 'deposez votre photo ici'
+  btncreat.style.display ='block'
+  btnRenit.innerText = "Rénit"
 }
 
 function deleteContact(i) {
@@ -296,6 +314,8 @@ btnRenit.addEventListener('click', contactField)
 // edit infolet inputDrop = document.querySelector(".inputDrop")
 
 function editInfo(i) {
+
+  index = i
   tabPictureForm[0] = listContact[i].picture
   userfirstname.value = listContact[i].prenom
   username.value = listContact[i].nom
@@ -303,9 +323,46 @@ function editInfo(i) {
   group.value =  listContact[i].groupe
   email.value =  listContact[i].email
   bio.value =   listContact[i].bio
+  btncreat.style.display ='none'
+  let spanModifier = document.querySelector('.spanModifier')
+  
+  let modifier = document.querySelector('.modifier')
+  if(modifier){
+    modifier.remove()
+    let btn = document.querySelector('.btn')
+    let btnMod = document.createElement('button')
+    let labelRenit = document.createElement('label')
+    spanModifier.style.display='block'
+    labelRenit.className ='labelRenit'
+    btnMod.innerText = "Modifier"
+    btnRenit.innerText = "Annuler"
+    btnMod.className = 'modifier'
+    spanModifier.appendChild(btnMod)
+    labelRenit.appendChild(btnRenit)
+    btn.append(labelRenit)
+    
+  }
+  
+  
 
-  btncreat.innerText = "Modifier"
-  btnRenit.innerText = "Annuler"
+  btnMod.addEventListener('click', (index)=>{
+
+    listContact.splice(index, 0, {
+      picture: tabPictureForm[0],
+      prenom: userfirstname.value,
+      nom: username.value,
+      phone: phoneNum.value,
+      groupe: group.value,
+      email: email.value,
+      bio: bio.value,
+    });
+    contactField();
+    showContacts();
+    
+  
+  } )
+
+  
 }
 
 

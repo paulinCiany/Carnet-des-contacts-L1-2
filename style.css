@@ -175,12 +175,12 @@ input {
     width: 100%;
 
 }
-/* .fullname{
+.fullname{
     width: 75%;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px; 
-} */
+}
 .btns{
     display: flex;
     flex-direction: row;
@@ -261,6 +261,9 @@ input {
     .formInput p {
         font-size: 20px;
 
+    }
+    .btns{
+        width: 20%;
     }
 
 }

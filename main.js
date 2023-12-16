@@ -15,7 +15,9 @@ let pic
 let tabPictureForm = []
 let listContact = []
 let spanModifier = document.querySelector('.spanModifier')
-spanModifier.style.display='none'
+const existNum = listContact.some((element) => element.phoneNum == phoneNum.value)
+const existEmail = listContact.some((element) => element.email == email.value)
+spanModifier.style.display = 'none'
 
 let telephone = document.getElementById('phone');
 
@@ -32,21 +34,18 @@ phone.addEventListener('blur', function () {
     phoneError.textContent = '';
   }
 });
-
 // Function to validate phone number format
 function validatePhone(phone) {
   let format = /^(084|085|080|089|081|082|099|097|090)/;
   return format.test(phone);
 }
-
 // Function to validate email format
 function validateEmail(email) {
   let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 // let emailInput = document.getElementById('email');
-let errorMessage = document.getElementById('error');
-
+let errorMessage = document.getElementById('emailError');
 email.addEventListener('blur', function () {
   if (!validateEmail(this.value)) {
     this.style.borderColor = 'red';
@@ -56,104 +55,176 @@ email.addEventListener('blur', function () {
     emailError.textContent = '';
   }
 });
-
 // Validate other input fields (name, group, bio)
 let groupInput = document.getElementById('group');
 let bioInput = document.getElementById('bio');
-
 const prenomError = document.getElementById('prenomError');
 userfirstname.addEventListener('blur', function () {
-  // Condition 1: Le prénom doit commencer par une lettre
-  if (!/^[a-zA-Z]/.test(userfirstname.value)) {
+  validatePrenom();
+});
+function validePrenom(re) {
+  re = /^[a-zA-Z]/;
+  return re.test(userfirstname);
+}
+function validatePrenom() {
+  if (validePrenom(userfirstname.value)) {
     userfirstname.style.borderColor = 'red';
     prenomError.textContent = 'Le prénom doit commencer par une lettre';
-    return;
+    return false;
   }
-
-  // Condition 2: Le prénom doit avoir au moins 3 caractères
-  if (userfirstname.value.length < 3) {
+  else if (userfirstname.value.length < 3) {
     userfirstname.style.borderColor = 'red';
     prenomError.textContent = 'Le prénom doit avoir au moins 3 caractères';
-    return;
-  }
-
-  // Condition 3: Le prénom ne doit pas contenir de chiffres
-  if (/[0-9]/.test(userfirstname.value)) {
+    return false;
+  } else if (userfirstname.value.length > 50) {
     userfirstname.style.borderColor = 'red';
-    prenomError.textContent = 'Le prénom ne doit pas contenir de chiffres';
-    return;
+    prenomError.textContent = 'Le prénom ne doit pas avoir plus de 50 caractères';
+    return false;
   }
-
-  // Si toutes les conditions sont remplies, le prénom est valide
-  userfirstname.style.borderColor = '';
-  prenomError.textContent = '';
-});
-
-const groupError = document.getElementById('groupError')
-groupInput.addEventListener('blur', function () {
-  if (groupInput.value.length < 3) {
-    groupInput.style.borderColor = 'red';
-    groupError.textContent = 'Veuillez renseigner un groupe valide.';
+  else if (/[0-9]/.test(userfirstname.value)) {
+    userfirstname.style.borderColor = 'red';
+    prenomError.textContent = 'Le prénom ne doit pas contenir des chiffres';
+    return false;
   } else {
-    groupInput.style.borderColor = '';
-    groupError.textContent = '';
+    userfirstname.style.borderColor = "";
+    prenomError.textContent = "";
+    return true;
   }
-});
-const bioError = document.getElementById('bioError')
-bioInput.addEventListener('blur', function () {
-  if (bioInput.value.length < 10) {
-    bioInput.style.borderColor = 'red';
-    bioError.textContent = 'Veuillez renseigner une bio d\'au moins 10 caractères.';
-  } else {
-    bioInput.style.borderColor = '';
-    bioError.textContent = '';
-  }
-});
-
-// const username = document.getElementById('prenomInput');
+}
 const nameError = document.getElementById('nameError');
-
 username.addEventListener('blur', function () {
-  // Condition 1: Le prénom doit commencer par une lettre
-  if (!/^[a-zA-Z]/.test(username.value)) {
+  validateName();
+});
+function valideName(re) {
+  re = /^[a-zA-Z]/;
+  return re.test(username);
+}
+function validateName() {
+  if (valideName(username.value)) {
     username.style.borderColor = 'red';
     nameError.textContent = 'Le nom doit commencer par une lettre';
-    return; // Arrête l'exécution de la fonction si la condition n'est pas remplie
+    return false;
   }
-
-  // Condition 2: Le prénom doit avoir au moins 3 caractères
-  if (username.value.length < 3) {
+  else if (username.value.length < 3) {
     username.style.borderColor = 'red';
     nameError.textContent = 'Le nom doit avoir au moins 3 caractères';
-    return;
-  }
-
-  // Condition 3: Le prénom ne doit pas contenir de chiffres
-  if (/[0-9]/.test(username.value)) {
+    return false;
+  } else if (username.value.length > 50) {
     username.style.borderColor = 'red';
-    nameErrortextContent = 'Le nom ne doit pas contenir de chiffres';
-    return;
+    nameError.textContent = 'Le nom ne doit pas avoir plus de 50 caractères';
+    return false;
+  } else if (/[0-9]/.test(username)) {
+    username.style.borderColor = 'red';
+    nameError.textContent = 'Le nom ne doit contenir que des lettres';
+    return false;
   }
-
-  // Si toutes les conditions sont remplies, le prénom est valide
-  username.style.borderColor = '';
-  nameError.textContent = '';
+  else {
+    username.style.borderColor = '';
+    nameError.textContent = '';
+    return true;
+  }
+}
+const phoneError = document.getElementById('phoneError');
+phoneNum.addEventListener('blur', function () {
+  validatePhone();
 });
+function validatePhone() {
+  let NumFormat = /^(084|085|080|089|081|082|099|097|090)\d{0,7}$/;
+  let RegexNum = NumFormat.test(phoneNum.value);
 
-// add picture to the form
+  if (!RegexNum) {
+    phoneNum.style.borderColor = 'red';
+    phoneError.textContent = 'Veuillez renseigner un numero correct.';
+
+  } else if (phoneNum.value.length < 10 || phoneNum.value.length > 10) {
+    phoneNum.style.borderColor = 'red';
+    phoneError.textContent = 'Veuillez renseigner un numero de telephone qui possede 10 chiffres.';
+
+  } else {
+    phoneNum.style.borderColor = '';
+    phoneError.textContent = '';
+
+  }
+  if (existNum) {
+    phoneNum.style.borderColor = 'red';
+    phoneError.textContent = 'ce numero exite déjà';
+
+  }
+  else {
+    phoneNum.style.borderColor = '';
+    phoneError.textContent = '';
+
+  }
+}
+
+function validateEmail(email) {
+  let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+let emailError = document.getElementById('emailError');
+email.addEventListener('blur', function () {
+  EmailValidation();
+});
+function EmailValidation() {
+  if (validateEmail(email)) {
+    email.style.borderColor = 'red';
+    emailError.textContent = 'Veuillez renseigner une adresse email valide';
+    return false;
+  } else if (existEmail) {
+    email.style.borderColor = 'red';
+    emailError.textContent = 'cet email existe déjà';
+
+  }
+  else {
+    email.style.borderColor = '';
+    emailError.textContent = '';
+
+  }
+}
+const groupError = document.getElementById('groupError');
+function validateGroupe() {
+  if (group.value == "") {
+    group.style.borderColor = 'red';
+    groupError.textContent = "ce champ ne peut pas etre Vide.";
+    return false;
+  } else {
+    group.style.borderColor = "";
+    groupError.textContent = "";
+    return true;
+  }
+}
+group.addEventListener('blur', function () {
+  validateGroupe();
+});
+const bioError = document.getElementById('bioError');
+function validateBio() {
+  if (bio.value == "") {
+    bio.style.borderColor = 'red';
+    bioError.textContent = "ce champ ne peut pas etre Vide.";
+    return false;
+  } else {
+    bio.style.borderColor = "";
+    bioError.textContent = "";
+    return true;
+  }
+}
+bio.addEventListener('blur', function () {
+  validateBio();
+});
 file.addEventListener("change", function () {
 
-  if (file.files[0].size < 1000000) {  // 1MB = 1000000
+  if (file.files[0].size < 1000000) {
     const reader = new FileReader()
-    reader.addEventListener("load", () => { // <img id="photoForApp" class="postionPhoto" width="70px" height="70px">
+    reader.addEventListener("load", () => {
       let imgEl = document.createElement("img")
       imgEl.setAttribute('id', 'photoForApp')
       imgEl.className = 'postionPhoto'
       inputDrop.append(imgEl)
+      document.querySelector("#displayNon").style.display = 'none'
+      document.querySelector("#photoForApp").src = reader.result
       tabPictureForm.pop()
       tabPictureForm.push(reader.result)
-      document.querySelector("#displayNon").style.display ='none';
-      document.querySelector("#photoForApp").src = tabPictureForm[0] //reader.result
+      document.querySelector("#photoForApp").src = tabPictureForm[0]
     })
     reader.readAsDataURL(this.files[0]);
   }
@@ -161,193 +232,29 @@ file.addEventListener("change", function () {
     alert("This file is too large!")
   }
 })
-// fonctions for adding contacts and buttons
-
 btncreat.addEventListener("click", function (e) {
   e.preventDefault();
-
-  listContact.push({
-    // picture: imgInput.src == undefined ? "./image/Profile Icon.webp" : imgInput.src,
-    picture: tabPictureForm[0],
-    prenom: userfirstname.value,
-    nom: username.value,
-    phone: phoneNum.value,
-    groupe: group.value,
-    email: email.value,
-    bio: bio.value,
-  });
-
-  showContacts();
-  contactField();
+  
+  verifyBeforetoCreat();
 
 })
-
-function showContacts() {
-  div.innerHTML = ''
-
-  console.log(listContact);
-
-  for (let i = 0; i < listContact.length; i++) {
-    // const element = listContact[i];
-    // let index = listContact.indexOf(element);
-    console.log(i);
-    let contactdiv = document.createElement("div");
-    contactdiv.classList = "contactIdentity";
-    div.appendChild(contactdiv);
-
-    let imageDiv = document.createElement('div')
-    imageDiv.className = 'imgDiv';
-    contactdiv.appendChild(imageDiv)
-
-    let img = document.createElement("img");
-    img.className = 'img_identity'
-    imageDiv.appendChild(img)
-    // img.src = tabPictureForm[0]
-    img.src = listContact[i].picture
-
-    let divIdentity = document.createElement("div");
-    divIdentity.classList = "infoContact";
-    contactdiv.appendChild(divIdentity);
-
-    let names = document.createElement("div");
-    names.classList = "fullNameAndbtns";
-    divIdentity.appendChild(names);
-
-    let personalNames = document.createElement("div");
-    personalNames.classList = "fullname";
-    // personalNames.innerHTML = userfirstname.value + " " + username.value + "-" + group.value;
-    personalNames.innerHTML = listContact[i].prenom + " " + listContact[i].nom + "-" + listContact[i].groupe;
-    names.appendChild(personalNames);
-
-    let btndeleteandmodify = document.createElement('div');
-    btndeleteandmodify.classList = "btns";
-    names.appendChild(btndeleteandmodify);
-
-    let modifyButton = document.createElement("button");
-
-    btndeleteandmodify.appendChild(modifyButton);
-
-    let modifyImg = document.createElement("img")
-    modifyImg.src = "image/Vector.svg";
-    modifyButton.appendChild(modifyImg);
-    modifyButton.addEventListener("click", function () {
-      editInfo(i)
-    });
-
-    let deleteButton = document.createElement("button");
-
-    btndeleteandmodify.appendChild(deleteButton);
-
-    let deleteImg = document.createElement("img");
-    deleteImg.src = "image/Vector (1).svg";
-    deleteButton.addEventListener("click", function () {
-      deleteContact(i)
-    });
-    deleteButton.appendChild(deleteImg);
-
-    let adress = document.createElement("div");
-    adress.classList = "telNum"
-    divIdentity.appendChild(adress);
-
-    let phone = document.createElement("p");
-    phone.innerHTML = listContact[i].phone;
-    adress.appendChild(phone);
-
-    let emailP = document.createElement("p");
-    emailP.innerHTML = listContact[i].email;
-    adress.appendChild(emailP);
-
-    let about = document.createElement("div");
-    about.classList = "bioInfo";
-    divIdentity.appendChild(about);
-
-    let bioinfoP = document.createElement("p");
-    bioinfoP.innerHTML = listContact[i].bio
-    about.appendChild(bioinfoP);
-  }
-}
-
-function contactField() {
-  userfirstname.value = "";
-  username.value = "";
-  phoneNum.value = "";
-  group.value = "";
-  email.value = "";
-  bio.value = "";
-  file.value = "";
-  
-  let spanPApp = document.querySelector('.spanInfo')
-  spanPApp.remove()
-  
-  let spanModifier = document.querySelector('.spanModifier')
-  let modifBtn = document.querySelector('.modifier')
-  if(spanModifier && modifBtn){
-    spanModifier.style.display ='none'
-    modifBtn.remove()
-    btncreat.style.display ='block'
-  }
-  let photoComp = document.querySelector("#photoForApp")
-  if(photoComp){
-    document.querySelector("#photoForApp").remove();
-  }
-
-  
-  spanModifier.style.display='none'
-  let spanPhotoApp = document.createElement('span');
-  spanPhotoApp.className = 'spanInfo';
-  spanPhotoApp.setAttribute('id', 'displayNon');
-  inputDrop.appendChild(spanPhotoApp)
-  spanPhotoApp.innerHTML = 'deposez votre photo ici'
-  btncreat.style.display ='block'
-  btnRenit.innerText = "Rénit"
-}
-
-function deleteContact(i) {
-  console.log('delete called');
-  listContact.splice(i, 1);
-  console.log(listContact);
-  showContacts();
-}
-// renitializing the form
 btnRenit.addEventListener('click', contactField)
-
-// edit infolet inputDrop = document.querySelector(".inputDrop")
-
 function editInfo(i) {
-
-  index = i
   tabPictureForm[0] = listContact[i].picture
   userfirstname.value = listContact[i].prenom
   username.value = listContact[i].nom
-  phoneNum.value =  listContact[i].phone
-  group.value =  listContact[i].groupe
-  email.value =  listContact[i].email
-  bio.value =   listContact[i].bio
-  btncreat.style.display ='none'
-  let spanModifier = document.querySelector('.spanModifier')
-  
-  let modifier = document.querySelector('.modifier')
-  if(modifier){
-    modifier.remove()
-    let btn = document.querySelector('.btn')
-    let btnMod = document.createElement('button')
-    let labelRenit = document.createElement('label')
-    spanModifier.style.display='block'
-    labelRenit.className ='labelRenit'
-    btnMod.innerText = "Modifier"
-    btnRenit.innerText = "Annuler"
-    btnMod.className = 'modifier'
-    spanModifier.appendChild(btnMod)
-    labelRenit.appendChild(btnRenit)
-    btn.append(labelRenit)
-    
-  }
-  
-  
+  phoneNum.value = listContact[i].phone
+  group.value = listContact[i].groupe
+  email.value = listContact[i].email
+  bio.value = listContact[i].bio
 
-  btnMod.addEventListener('click', (index)=>{
+  btncreat.innerText = "Modifier"
+  btnRenit.innerText = "Annuler"
+}
+function verifyBeforetoCreat() {
 
-    listContact.splice(index, 0, {
+  if (((validateName && validatePrenom) && (validatePhone && EmailValidation)) && (validateGroupe && validateBio)) {
+    listContact.push({
       picture: tabPictureForm[0],
       prenom: userfirstname.value,
       nom: username.value,
@@ -356,13 +263,149 @@ function editInfo(i) {
       email: email.value,
       bio: bio.value,
     });
-    contactField();
     showContacts();
-    
-  
-  } )
+    contactField();
+  }
+}
+function contactField() {
+  userfirstname.value = "";
+  username.value = "";
+  phoneNum.value = "";
+  group.value = "";
+  email.value = "";
+  bio.value = "";
+  file.value = "";
+  let phForAp =document.querySelector("#photoForApp")
+  if(phForAp){
+    phForAp.remove();
+  }
+  document.querySelector("#displayNon").style.display = 'block'
+}
+function showContacts() {
+  div.innerHTML = ''
+  for (let i = 0; i < listContact.length; i++) {
+    let contactdiv = document.createElement("div");
+    contactdiv.classList = "contactIdentity";
+    div.appendChild(contactdiv);
+    let imageDiv = document.createElement('div')
+    imageDiv.className = 'imgDiv';
+    contactdiv.appendChild(imageDiv)
+    let img = document.createElement("img");
+    img.className = 'img_identity'
+    imageDiv.appendChild(img)
+    img.src = listContact[i].picture
+    let divIdentity = document.createElement("div");
+    divIdentity.classList = "infoContact";
+    contactdiv.appendChild(divIdentity);
+    let names = document.createElement("div");
+    names.classList = "fullNameAndbtns";
+    divIdentity.appendChild(names);
+    let personalNames = document.createElement("div");
+    personalNames.classList = "fullname";
+    personalNames.innerHTML = listContact[i].prenom + " " + listContact[i].nom + "-" + listContact[i].groupe;
+    names.appendChild(personalNames);
+    let btndeleteandmodify = document.createElement('div');
+    btndeleteandmodify.classList = "btns";
+    names.appendChild(btndeleteandmodify);
+    let modifyButton = document.createElement("button");
+    btndeleteandmodify.appendChild(modifyButton);
+    let modifyImg = document.createElement("img")
+    modifyImg.src = "image/Vector.svg";
+    modifyButton.appendChild(modifyImg);
+    modifyButton.addEventListener("click", function () {
+      editInfo(i)
+    });
+    let deleteButton = document.createElement("button");
+    btndeleteandmodify.appendChild(deleteButton);
+    let deleteImg = document.createElement("img");
+    deleteImg.src = "image/Vector (1).svg";
+    deleteButton.addEventListener("click", function () {
+      let confirmation = confirm("voulez-vous vraiment supprimer?");
+      if (confirmation == true) {
+        deleteContact(i)
+      } else {
+        return false;
+      }
+    });
+    deleteButton.appendChild(deleteImg);
+    let adress = document.createElement("div");
+    adress.classList = "telNum"
+    divIdentity.appendChild(adress);
+    let phone = document.createElement("p");
+    phone.innerHTML = listContact[i].phone;
+    adress.appendChild(phone);
+    let emailP = document.createElement("p");
+    emailP.innerHTML = listContact[i].email;
+    adress.appendChild(emailP);
+    let about = document.createElement("div");
+    about.classList = "bioInfo";
+    divIdentity.appendChild(about);
+    let bioinfoP = document.createElement("p");
+    bioinfoP.innerHTML = listContact[i].bio
+    about.appendChild(bioinfoP);
+  }
+}
+function verifyEmailExist() {
+  for (const data of listContact)
+    if (data.email) {
+      return true;
+    }
+}
 
-  
+function deleteContact(i) {
+  console.log('delete called');
+  listContact.splice(i, 1);
+  console.log(listContact);
+  showContacts();
+}
+
+btnRenit.addEventListener('click', contactField)
+
+function editInfo(i) {
+  index = i
+  tabPictureForm[0] = listContact[i].picture
+  userfirstname.value = listContact[i].prenom
+  username.value = listContact[i].nom
+  phoneNum.value = listContact[i].phone
+  group.value = listContact[i].groupe
+  email.value = listContact[i].email
+  bio.value = listContact[i].bio
+  btncreat.style.display = 'none'
+  let spanModifier = document.querySelector('.spanModifier')
+  let modifier = document.querySelector('.modifier')
+  if (modifier){
+    modifier.remove()
+    let btn = document.querySelector('.btn')
+    let btnMod = document.createElement('button')
+    let labelRenit = document.createElement('label')
+    btnMod.className = 'modifier'
+    spanModifier.appendChild(btnMod)
+    labelRenit.appendChild(btnRenit)
+    btn.append(labelRenit)
+    
+    spanModifier.style.display = 'block'
+    modifier.style.display = 'block'
+    labelRenit.className = 'labelRenit'
+    btnMod.innerText = "Modifier"
+    btnRenit.innerText = "Annuler"
+
+    btnMod.addEventListener('click', (index) => {
+
+      listContact.splice(index, 0, {
+        picture: tabPictureForm[0],
+        prenom: userfirstname.value,
+        nom: username.value,
+        phone: phoneNum.value,
+        groupe: group.value,
+        email: email.value,
+        bio: bio.value,
+      });
+      contactField();
+      showContacts();
+   })
+
+  }
+ 
 }
 
 

@@ -234,23 +234,23 @@ file.addEventListener("change", function () {
 })
 btncreat.addEventListener("click", function (e) {
   e.preventDefault();
-  
+
   verifyBeforetoCreat();
 
 })
 btnRenit.addEventListener('click', contactField)
-function editInfo(i) {
-  tabPictureForm[0] = listContact[i].picture
-  userfirstname.value = listContact[i].prenom
-  username.value = listContact[i].nom
-  phoneNum.value = listContact[i].phone
-  group.value = listContact[i].groupe
-  email.value = listContact[i].email
-  bio.value = listContact[i].bio
 
-  btncreat.innerText = "Modifier"
-  btnRenit.innerText = "Annuler"
-}
+// function editInfo(i) {
+//   tabPictureForm[0] = listContact[i].picture
+//   userfirstname.value = listContact[i].prenom
+//   username.value = listContact[i].nom
+//   phoneNum.value = listContact[i].phone
+//   group.value = listContact[i].groupe
+//   email.value = listContact[i].email
+//   bio.value = listContact[i].bio
+
+//   btnRenit.innerText = "Annuler"
+// }
 function verifyBeforetoCreat() {
 
   if (((validateName && validatePrenom) && (validatePhone && EmailValidation)) && (validateGroupe && validateBio)) {
@@ -275,11 +275,15 @@ function contactField() {
   email.value = "";
   bio.value = "";
   file.value = "";
-  let phForAp =document.querySelector("#photoForApp")
-  if(phForAp){
+  let phForAp = document.querySelector("#photoForApp")
+  if (phForAp) {
     phForAp.remove();
   }
   document.querySelector("#displayNon").style.display = 'block'
+  spanModifier.style.display = 'none'
+  btncreat.style.display = 'block'
+  btncreat.innerHTML = "Créer"
+  btnRenit.innerText = "Rénit"
 }
 function showContacts() {
   div.innerHTML = ''
@@ -373,21 +377,21 @@ function editInfo(i) {
   btncreat.style.display = 'none'
   let spanModifier = document.querySelector('.spanModifier')
   let modifier = document.querySelector('.modifier')
-  if (modifier){
+  spanModifier.style.display = 'block'
+  btnRenit.innerText = "Annuler"
+  if (modifier) {
     modifier.remove()
-    let btn = document.querySelector('.btn')
+    // let btn = document.querySelector('.btn')
+    // console.log(btn)
     let btnMod = document.createElement('button')
     let labelRenit = document.createElement('label')
     btnMod.className = 'modifier'
+    modimodifierfier.style.display = 'block'
     spanModifier.appendChild(btnMod)
     labelRenit.appendChild(btnRenit)
     btn.append(labelRenit)
-    
-    spanModifier.style.display = 'block'
-    modifier.style.display = 'block'
     labelRenit.className = 'labelRenit'
     btnMod.innerText = "Modifier"
-    btnRenit.innerText = "Annuler"
 
     btnMod.addEventListener('click', (index) => {
 
@@ -402,27 +406,8 @@ function editInfo(i) {
       });
       contactField();
       showContacts();
-   })
+    })
 
   }
- 
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

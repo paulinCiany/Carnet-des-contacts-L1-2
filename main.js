@@ -14,10 +14,10 @@ let inputDrop = document.querySelector(".inputDrop")
 let pic
 let tabPictureForm = []
 let listContact = []
-let spanModifier = document.querySelector('.spanModifier')
+let btMod = document.querySelector('.btMod')
 const existNum = listContact.some((element) => element.phoneNum == phoneNum.value)
 const existEmail = listContact.some((element) => element.email == email.value)
-spanModifier.style.display = 'none'
+btMod.style.display = 'none'
 
 let telephone = document.getElementById('phone');
 
@@ -232,25 +232,14 @@ file.addEventListener("change", function () {
     alert("This file is too large!")
   }
 })
+
 btncreat.addEventListener("click", function (e) {
   e.preventDefault();
-
   verifyBeforetoCreat();
-
 })
+
 btnRenit.addEventListener('click', contactField)
 
-// function editInfo(i) {
-//   tabPictureForm[0] = listContact[i].picture
-//   userfirstname.value = listContact[i].prenom
-//   username.value = listContact[i].nom
-//   phoneNum.value = listContact[i].phone
-//   group.value = listContact[i].groupe
-//   email.value = listContact[i].email
-//   bio.value = listContact[i].bio
-
-//   btnRenit.innerText = "Annuler"
-// }
 function verifyBeforetoCreat() {
 
   if (((validateName && validatePrenom) && (validatePhone && EmailValidation)) && (validateGroupe && validateBio)) {
@@ -280,7 +269,7 @@ function contactField() {
     phForAp.remove();
   }
   document.querySelector("#displayNon").style.display = 'block'
-  spanModifier.style.display = 'none'
+  btMod.style.display='none'
   btncreat.style.display = 'block'
   btncreat.innerHTML = "Créer"
   btnRenit.innerText = "Rénit"
@@ -374,40 +363,26 @@ function editInfo(i) {
   group.value = listContact[i].groupe
   email.value = listContact[i].email
   bio.value = listContact[i].bio
+  btMod.style.display='block'
   btncreat.style.display = 'none'
-  let spanModifier = document.querySelector('.spanModifier')
-  let modifier = document.querySelector('.modifier')
-  spanModifier.style.display = 'block'
   btnRenit.innerText = "Annuler"
-  if (modifier) {
-    modifier.remove()
-    // let btn = document.querySelector('.btn')
-    // console.log(btn)
-    let btnMod = document.createElement('button')
-    let labelRenit = document.createElement('label')
-    btnMod.className = 'modifier'
-    modimodifierfier.style.display = 'block'
-    spanModifier.appendChild(btnMod)
-    labelRenit.appendChild(btnRenit)
-    btn.append(labelRenit)
-    labelRenit.className = 'labelRenit'
-    btnMod.innerText = "Modifier"
 
-    btnMod.addEventListener('click', (index) => {
+  btMod.addEventListener('click', (index) => {
 
-      listContact.splice(index, 0, {
-        picture: tabPictureForm[0],
-        prenom: userfirstname.value,
-        nom: username.value,
-        phone: phoneNum.value,
-        groupe: group.value,
-        email: email.value,
-        bio: bio.value,
-      });
-      contactField();
-      showContacts();
-    })
-
-  }
-
+    listContact.splice(index, 0, {
+      picture: tabPictureForm[0],
+      prenom: userfirstname.value,
+      nom: username.value,
+      phone: phoneNum.value,
+      groupe: group.value,
+      email: email.value,
+      bio: bio.value,
+    });
+    contactField();
+    showContacts();
+  })
 }
+
+
+
+

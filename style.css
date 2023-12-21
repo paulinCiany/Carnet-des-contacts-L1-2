@@ -114,7 +114,7 @@ input {
 }
 
 .btnCreat,
-.btnRenit, .modifier {
+.btnRenit, .modifier, .btMod {
     margin-top: 10%;
     margin-bottom: 15%;
     border-style: none;
@@ -129,7 +129,7 @@ input {
     color: white;
 }
 
-.btnCreat, .modifier{
+.btnCreat, .modifier, .btMod{
     background-color: #0880D6;
 }
 .btnRenit {
@@ -247,7 +247,7 @@ input {
     }
 
     .btnCreat,
-    .btnRenit {
+    .btnRenit, .btMod {
         width: 50%;
         height: 70px;
         font-size: 20px;
@@ -262,19 +262,6 @@ input {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Small devices (portrait and large phones, 767px and down) */
@@ -393,7 +380,7 @@ input {
     }
 
     .btnCreat,
-    .btnRenit, .modifier{
+    .btnRenit, .btMod{
         margin-top: 5%;
         margin-bottom: 5%;
         border-style: none;

@@ -33,7 +33,6 @@
     margin-right: 10%;
     margin-top: 2%;
     gap: 2%;
-    border: 2px solid #0880D6;
 }
 
 .form {
@@ -43,7 +42,7 @@
 
 .list {
     width: 58%;
-    
+
 }
 
 .listTitle,
@@ -72,21 +71,31 @@
 
 
 input {
-    height: 40px;
+    height: 35px;
+    padding: 8px;
+    border: 1px solid #0880D6;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0em;
+    outline: none;
+    width: 100%;
 
 
 }
 
 .inputBio,
 .inputDrop {
-    height: 95px;
+    padding: 10px;
+    height: 90px;
 }
 
 .formInput p {
     color: #0880D6;
     margin-top: 2%;
     margin-bottom: 2%;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -106,7 +115,7 @@ input {
     display: none;
 }
 
-.btn  {
+.btn {
     display: flex;
     flex-direction: row;
     gap: 36px;
@@ -114,7 +123,9 @@ input {
 }
 
 .btnCreat,
-.btnRenit, .modifier, .btMod {
+.btnRenit,
+.modifier,
+.btMod {
     margin-top: 10%;
     margin-bottom: 15%;
     border-style: none;
@@ -129,18 +140,23 @@ input {
     color: white;
 }
 
-.btnCreat, .modifier, .btMod{
+.btnCreat,
+.modifier,
+.btMod {
     background-color: #0880D6;
 }
+
 .btnRenit {
     background: #FF3838;
 
 }
+
 .globalContact {
     display: flex;
     flex-direction: column;
 }
-.contactIdentity{
+
+.contactIdentity {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -149,13 +165,16 @@ input {
     border-width: 1px, 1px, 0px, 1px;
     border-style: solid;
     border-color: #DDDDDD;
-}.fullname{
+}
+
+.fullname {
     width: 75%;
     font-weight: 500;
     font-size: 16px;
-    line-height: 24px; 
+    line-height: 24px;
 }
-.img_identity{
+
+.img_identity {
     width: 162px;
     height: 162px;
     border-radius: 86px;
@@ -166,7 +185,7 @@ input {
     display: flex;
     flex-direction: column;
     width: 100%;
-   
+
 }
 
 .fullNameAndbtns {
@@ -175,32 +194,36 @@ input {
     width: 100%;
 
 }
-.fullname{
+
+.fullname {
     width: 75%;
     font-weight: 500;
     font-size: 16px;
-    line-height: 24px; 
+    line-height: 24px;
 }
-.btns{
+
+.btns {
     display: flex;
     flex-direction: row;
     text-align: right;
     width: 10%;
     justify-content: space-between;
-   
+
 }
 
-.telNum{
+.telNum {
     font-weight: 400;
     font-size: 14px;
-    line-height: 21px; 
+    line-height: 21px;
 }
-.bioInfo{
+
+.bioInfo {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
 }
-#photoForApp{
+
+#photoForApp {
     width: 70px;
     height: 70px;
 }
@@ -247,7 +270,8 @@ input {
     }
 
     .btnCreat,
-    .btnRenit, .btMod {
+    .btnRenit,
+    .btMod {
         width: 50%;
         height: 70px;
         font-size: 20px;
@@ -257,7 +281,8 @@ input {
         font-size: 20px;
 
     }
-    .btns{
+
+    .btns {
         width: 20%;
     }
 
@@ -380,7 +405,8 @@ input {
     }
 
     .btnCreat,
-    .btnRenit, .btMod{
+    .btnRenit,
+    .btMod {
         margin-top: 5%;
         margin-bottom: 5%;
         border-style: none;
@@ -395,7 +421,7 @@ input {
         color: white;
     }
 
-    .modifier{
+    .modifier {
         margin-top: 5%;
         margin-bottom: 5%;
         border-style: none;
@@ -409,7 +435,9 @@ input {
         text-align: center;
         color: white;
     }
-    .btnCreat, .modifier{
+
+    .btnCreat,
+    .modifier {
         background-color: #0880D6;
     }
 
@@ -424,7 +452,8 @@ input {
         display: flex;
         flex-direction: column;
     }
-    .contactIdentity{
+
+    .contactIdentity {
         display: flex;
         flex-direction: column;
         gap: 5px;
@@ -432,55 +461,60 @@ input {
         border-style: solid;
         border-color: #DDDDDD;
         padding: 0px;
-    }.fullname{
+    }
+
+    .fullname {
         width: 70%;
         font-size: 16px;
-        line-height: 20px; 
+        line-height: 20px;
     }
-    .img_identity{
+
+    .img_identity {
         margin-top: 10px;
         width: 100px;
         height: 100px;
         border-radius: 86px;
     }
-    
+
     .infoContact {
         font-family: "poppins", sans-serif;
         display: flex;
         flex-direction: column;
         width: 100%;
-       
+
     }
-    
+
     .fullNameAndbtns {
         display: flex;
         justify-content: space-between;
         width: 100%;
-    
+
     }
 
-    .btns{
+    .btns {
         display: flex;
         flex-direction: row;
-        width: 20%;       
+        width: 20%;
     }
-    
-    .telNum{
+
+    .telNum {
         font-size: 14px;
-        line-height: 21px; 
+        line-height: 21px;
     }
-    .bioInfo{
+
+    .bioInfo {
         font-weight: 400;
         font-size: 12px;
         line-height: 18px;
     }
-    
-    .spanModifier, .labelRenit{
+
+    .spanModifier,
+    .labelRenit {
         width: 47.5%;
     }
- 
-    
-    
+
+
+
 
 
 
@@ -490,5 +524,3 @@ input {
 
 
 }
-  
-  
